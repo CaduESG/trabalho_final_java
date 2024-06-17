@@ -41,5 +41,13 @@ public class Livro{
         "\nNome: " + nomeLivro +
         "\nCodigo: " + codigo +
         "\nExemplares: " + exemplares;
-    } 
+    }
+    public void retirada () {
+        if (this.qtdExemplares > 0) {
+            System.out.println ("Livro retirado com sucesso!");
+            qtdExemplares--;
+        } else {
+            System.out.println ("O livro desejado está indisponível.");
+        }
+    }
 }
