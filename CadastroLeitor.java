@@ -5,29 +5,38 @@
  * @author (seu nome) 
  * @version (um número da versão ou uma data)
  */
-public class CadastroLeitor
-{
-    // variáveis de instância - substitua o exemplo abaixo pelo seu próprio
-    private int x;
-
-    /**
-     * Construtor para objetos da classe CadastroLeitor
-     */
-    public CadastroLeitor()
-    {
-        // inicializa variáveis de instância
-        x = 0;
+public class CadastroLeitor {
+   private int index;
+    private Leitor leitor[];
+    
+    // Métodos construtor
+    public CadastroLeitor () {
+        this.index = 0;
+        this.leitor = new Leitor[10];
     }
-
-    /**
-     * Um exemplo de um método - substitua este comentário pelo seu próprio
-     * 
-     * @param  y   um exemplo de um parâmetro de método
-     * @return     a soma de x e y 
-     */
-    public int sampleMethod(int y)
-    {
-        // escreva seu código aqui
-        return x + y;
+    
+    public boolean insereLeitor (Leitor leitor) {
+        if (this.index < this.leitor.length) {
+            this.leitor[this.index] = leitor;
+            this.index++;
+            return true;
+        }
+        return false;
+    }
+    public boolean retiraLeitor (String nome) {
+        for (int i = 0; i < leitor.length; i++) {
+            if (leitor[i].getNome().equalsIgnoreCase(nome)) {
+                this.index--;
+                leitor[i] = null;
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public void mostraLeitor () {
+        for (Leitor l1 : leitor) {
+            System.out.println (l1);
+        }
     }
 }
